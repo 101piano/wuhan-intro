@@ -25,6 +25,8 @@ define(['jquery'],function($){
       
       _this.loadMore.on('click',function(e){
         e.preventDefault();
+        var script=$('<script src="http://platform.sina.com.cn/slide/album_tech"></script>');
+        $(document.body).append(script);
         if(_this.isDataArrive){
           _this.getData();
         }else {
