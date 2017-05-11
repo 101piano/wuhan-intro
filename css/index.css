@@ -377,13 +377,15 @@ body {
 .events .img-waterfall li {
   width: 280px;     
   margin: 10px;
-  box-shadow: 0 0 2em #ccc;
+  box-shadow: 0 0 1em #bbb;
+  border: 1px solid #ccc;
   position: absolute;
   top: 0;
   left: 0;
 }
-.events .img-waterfall .active {
-  
+.events .img-waterfall .item:hover{
+  z-index: 6;
+  transform: translate3d(0, 0, -100px) scale3d(1.2,1.2,1.2);
 }
 .events .img-waterfall li img {
   width: 260px;

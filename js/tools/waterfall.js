@@ -62,7 +62,7 @@ define(['jquery'],function($){
       var html='';
       $.each(datas,function(){
         html+='<li class="item">';
-        html+=  '<a href="javascript:void(0)" class="link"><img src='+this.img_url+'></a>'
+        html+=  '<a href='+this.url+' class="link"><img src='+this.img_url+'></a>'
         html+=  '<h3 class="header">'+this.short_name+'</h3>'
         html+=  '<p class="introduce">'+this.short_intro+'</p>'
         html+='</li>';
@@ -99,7 +99,8 @@ define(['jquery'],function($){
       });
       _this.nodeArr[minIndex]+=nodeParent.outerHeight(true);
       _this.imgWaterfall.height(Math.max.apply(null,_this.nodeArr));
-    }
+    },
+    
     
     
   }
