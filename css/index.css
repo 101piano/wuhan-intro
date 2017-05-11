@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -33,7 +34,6 @@ body {
 #header .carousel .carousel-img li {
   width: 100vw;
   float: left;
-  float: left;
 }
 #header .carousel-img img {
   width: 100vw;
@@ -50,6 +50,7 @@ body {
   line-height: 60px;
   top: 50%;
   margin-top: -40px;
+  z-index: 10;
 }
 #header .carousel  .pre-btn {
   left: 5%;    
@@ -63,6 +64,7 @@ body {
   right: 0;
   bottom: 30px;
   text-align: center;
+  z-index: 10;
 }
 #header .carousel .nav-img li {
   width: 160px;
@@ -78,6 +80,7 @@ body {
 #header .carousel .nav-img .active {
   opacity: 0.8;
 }
+
 /*导航样式设置*/
 .nav {
   width: 100%;
@@ -373,11 +376,14 @@ body {
 }
 .events .img-waterfall li {
   width: 280px;     
-  margin: 5px;
-  border: 1px solid #ccc;
+  margin: 10px;
+  box-shadow: 0 0 2em #ccc;
   position: absolute;
   top: 0;
   left: 0;
+}
+.events .img-waterfall .active {
+  
 }
 .events .img-waterfall li img {
   width: 260px;
@@ -405,6 +411,7 @@ body {
   line-height: 50px; 
   margin: 30px auto 50px auto;
 }
+
 /*part5样式设置*/
 .contacts {
   width: 1200px;

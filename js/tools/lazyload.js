@@ -10,7 +10,6 @@ define(['jquery'],function($){
       $(window).on('scroll',function(){
        
         if(_this.isShow()){
-          console.log(1);
           _this.callback(_this.target);
         }        
       });

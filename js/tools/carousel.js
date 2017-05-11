@@ -14,12 +14,12 @@ define(['jquery'],function($){
       
       this.currentIndex=0;
       this.isAnimate=false;
+
       
        //未复制前的个数
       this.imgNum=carouselImg.children().length;
       this.liWidth=carouselImg.find('li').width();
    
-      console.log(this.liWidth);
       //复制
       var firstImg=this.firstImg=carouselImg.find('li').first(),
           lastImg=this.lastImg=carouselImg.find('li').last();
@@ -41,7 +41,9 @@ define(['jquery'],function($){
       
       this.nextBtn.on('click',function(){
         _this.playNext(1);
-      });     
+      });  
+      
+      this.clicknavImg();
     },
     playPre:function(num){
       var _this=this;
@@ -61,7 +63,8 @@ define(['jquery'],function($){
     },
     playNext:function(num){
       var _this=this;
-       if(_this.isAnimate) return;
+      if(_this.isAnimate) return;
+      _this.isAnimate=true;
       this.carouselImg.animate({
           left: '-='+num*_this.liWidth
         },function(){
@@ -78,9 +81,25 @@ define(['jquery'],function($){
       $(this.navImgs).children().removeClass('active')
                                 .eq(index)
                                 .addClass('active');
-    }
-
-   
+    },
+    
+    clicknavImg: function(){
+      var _this=this;
+      _this.navImgs.on('click','li',function(){
+        var len=$(this).index()-_this.currentIndex;
+        if(len>=0){
+          _this.playNext(len);
+        }else {
+          _this.playPre(-len);
+        }        
+      });
+      _this.navImgs.on('mouseover','li',function(){
+        $(this).addClass('active');
+      });
+      _this.navImgs.on('mouseout','li',function(){
+        $(this).removeClass('active');
+      });
+    }   
   }
   
   return Carousel;

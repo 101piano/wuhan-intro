@@ -14,7 +14,9 @@ define(['jquery','tools/carousel','tools/lazyload','tools/gotop','tools/gowhere'
   new GoTop();
   
   new Carousel($('#header .carousel'));
-  LazyLoad.init($('.historical-sites ul img').not('.loaded'),showImg);
+  LazyLoad.init($('.historical-sites ul img').not('.loaded'),function($img){
+    showImg($img);
+  });
   LazyLoad.init($('.historical-sites ul p').not('.loaded'),showText);
   
   GoWhere.init($('.loadmore'),$('.three-towns'));
@@ -33,20 +35,6 @@ define(['jquery','tools/carousel','tools/lazyload','tools/gotop','tools/gowhere'
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   function showImg($img){
     var imgUrl=$img.attr('data-src');
     $img.attr('src',imgUrl);
@@ -54,9 +42,9 @@ define(['jquery','tools/carousel','tools/lazyload','tools/gotop','tools/gowhere'
   }
   
   function showText($text){
-    $text.css({
+    $text.animate({
       'opacity': 1
-    });
+    },500);
     $text.addClass('loaded');
   }
 })
